@@ -1,0 +1,52 @@
+﻿@model List<Practical_Manit.Models.User>
+@{
+    ViewBag.Title = "Home Page";
+}
+<br />
+<br />
+<h1 class="h1" align="center">User List</h1>
+@if (TempData["msg"] != "")
+{
+<div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong> @TempData["msg"] </strong>
+</div>
+}
+<div class="col-md-2">
+
+</div>
+<div class="col-md-8">
+    <form method="post" class="form-group">
+
+        @foreach (var item in ViewBag.userlist)
+        {
+            <table class="table table-bordered">
+                <thead>
+                    <th align="center">Name : </th>
+                    <th align="center"><b>@item.Name</b></th>
+                </thead>
+
+                <tr>
+                    <td align="center">Id </td>
+                    <td align="center"><input type="text" class="form-control" readonly name="txtId" value="@item.UserId" /></td>
+                </tr>
+                <tr>
+                    <td align="center">Name  </td>
+                    <td align="center"><input type="text" class="form-control" name="txtName" value="@item.Name" /></td>
+                </tr>
+                <tr>
+                    <td align="center">Display Order </td>
+                    <td align="center"><input type="text" class="form-control" name="txtOrder" value="@item.DisplayOrder" /></td>
+
+                </tr>
+            </table>
+
+        }
+    <div class="btn" align="center">
+        <input type="submit" value="Submit" class="btn btn-info" />
+    </div>
+        
+
+    </form>
+</div>
+
